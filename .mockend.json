@@ -1,102 +1,66 @@
-[
-	{
-		"body": "Eos culpa et voluptatem.",
-		"category": "three",
-		"cover": "https://picsum.photos/seed/85771/1920/270",
-		"createdAt": "2016-02-08T08:12:09Z",
-		"id": 1,
-		"isDraft": true,
-		"title": "corrupti ducimus",
-		"views": 647
-	},
-	{
-		"body": "Illo saepe consequuntur a libero deserunt a eos, perferendis sint, accusantium qui dolorum sed at.",
-		"category": "three",
-		"cover": "https://picsum.photos/seed/61890/1920/270",
-		"createdAt": "2011-10-16T13:55:55Z",
-		"id": 2,
-		"isDraft": false,
-		"title": "repellendus",
-		"views": 609
-	},
-	{
-		"body": "Unde veniam.",
-		"category": "one",
-		"cover": "https://picsum.photos/seed/48003/1920/270",
-		"createdAt": "2014-08-12T22:37:04Z",
-		"id": 3,
-		"isDraft": false,
-		"title": "inventore",
-		"views": 395
-	},
-	{
-		"body": "Debitis et neque facilis magnam.",
-		"category": "one",
-		"cover": "https://picsum.photos/seed/11538/1920/270",
-		"createdAt": "2012-06-04T21:28:05Z",
-		"id": 4,
-		"isDraft": true,
-		"title": "optio ut hic",
-		"views": 764
-	},
-	{
-		"body": "Error nisi deserunt consectetur ea a.",
-		"category": "one",
-		"cover": "https://picsum.photos/seed/80338/1920/270",
-		"createdAt": "2018-12-29T15:15:32Z",
-		"id": 5,
-		"isDraft": true,
-		"title": "itaque nam sed",
-		"views": 757
-	},
-	{
-		"body": "Mollitia doloribus a reprehenderit vitae, incidunt incidunt.",
-		"category": "two",
-		"cover": "https://picsum.photos/seed/98429/1920/270",
-		"createdAt": "2017-10-08T08:45:12Z",
-		"id": 6,
-		"isDraft": true,
-		"title": "earum",
-		"views": 921
-	},
-	{
-		"body": "Reprehenderit et, asperiores sed reprehenderit nisi, architecto a reprehenderit ipsa.",
-		"category": "two",
-		"cover": "https://picsum.photos/seed/13911/1920/270",
-		"createdAt": "2012-10-30T16:06:08Z",
-		"id": 7,
-		"isDraft": true,
-		"title": "debitis in a",
-		"views": 714
-	},
-	{
-		"body": "Perspiciatis minima sit.",
-		"category": "one",
-		"cover": "https://picsum.photos/seed/83509/1920/270",
-		"createdAt": "2015-11-19T10:59:18Z",
-		"id": 8,
-		"isDraft": false,
-		"title": "maxime iusto",
-		"views": 117
-	},
-	{
-		"body": "Dolore perferendis deleniti ab, in molestiae quia, autem perspiciatis aliquam corrupti.",
-		"category": "two",
-		"cover": "https://picsum.photos/seed/52973/1920/270",
-		"createdAt": "2016-03-26T23:50:25Z",
-		"id": 9,
-		"isDraft": false,
-		"title": "et iusto",
-		"views": 847
-	},
-	{
-		"body": "Voluptatem reprehenderit cumque laborum, tempora magnam ea quo cum.",
-		"category": "three",
-		"cover": "https://picsum.photos/seed/38265/1920/270",
-		"createdAt": "2013-02-22T02:46:26Z",
-		"id": 10,
-		"isDraft": true,
-		"title": "quam earum",
-		"views": 616
-	}
-]
+{
+  "Post": {
+    "_": {
+      "items": 10
+    },
+    "cover": {
+      "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/270"
+    },
+    "title": {
+      "loremWords": {
+        "minLength": 5,
+        "maxLength": 20
+      }
+    },
+    "body": {
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 100
+      }
+    },
+    "category": {
+      "string": ["one", "two", "three"]
+    },
+    "isDraft": {
+      "boolean": {}
+    },
+    "views": {
+      "int": {
+        "min": 0,
+        "max": 1000
+      }
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "comments": {
+      "hasMany": "Comment"
+    }
+  },
+  "Comment": {
+    "_": {
+      "items": 25
+    },
+    "email": {
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "body": {
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 100
+      }
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "post": {
+      "belongsTo": "Post"
+    }
+  }
+}
